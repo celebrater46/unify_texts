@@ -25,6 +25,8 @@ def unify_texts():
     for f in fs:
         tempstr += get_text(f)
         tempstr += f"\n\n####################[PAGE_BREAK TITLE:{f}]####################\n\n"
+        print(f"Added {f}")
     create_unified_text(tempstr)
+    print(f"Created Unified.txt")
 
 unify_texts()

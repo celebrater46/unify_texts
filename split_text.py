@@ -10,22 +10,18 @@ def get_lines():
     return lines
 
 def get_title(txt):
-    print(txt)
     re_obj = re.search(r'TITLE:[\w-]+.txt', txt)
     title = re_obj.group()
     title = title.replace("TITLE:", "")
     return title
 
 def create_text(txt):
-    # re_obj = re.search(r'TITLE:[\w-]+.txt', str)
-    # title = re_obj.group()
     title = get_title(txt)
     tempstr = re.sub(r'#+[PAGE_BREAK TITLE:[\w-]+.txt]#+', '', txt)
-    # print(re_obj.group())
-    # print(title)
     f = open(f"{OUTPUT_DIL}/{title}", "w", encoding='utf-8')
     f.write(tempstr)
     f.close()
+    print(f"Create: {title}")
 
 def create_texts(arr):
     for page in arr:
@@ -35,19 +31,14 @@ def split_text():
     lines = get_lines()
     pages = []
     tempstr = ""
-    # print(lines)
     for line in lines:
         tempstr += line
-        # tempstr = str(tempstr + line)
         if line.find("PAGE_BREAK") > -1:
             pages.append(tempstr)
             tempstr = ""     
-    # print(tempstr)
-    # print(pages[5])
     create_texts(pages)
 
 def test(txt):
-    # re_obj = re.search(r'TITLE:[\w-]+.txt', txt)
     re_obj = re.search(r'#+[PAGE_BREAK TITLE:[\w-]+.txt]#+', txt)
     print(re_obj.group())
 
