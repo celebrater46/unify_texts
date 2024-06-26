@@ -1,9 +1,10 @@
 import os
 
+DIR_PATH = "texts"
+
 def get_filenames():
-    dir_path = "texts"
     file_names = [
-        f for f in os.listdir(dir_path) if os.path.isfile(os.path.join(dir_path, f))
+        f for f in os.listdir(DIR_PATH) if os.path.isfile(os.path.join(DIR_PATH, f))
     ]
     return file_names
 
@@ -23,7 +24,7 @@ def unify_texts():
     fs = get_filenames()
     for f in fs:
         tempstr += get_text(f)
-        tempstr += "\n\n####################[PAGE_BREAK]####################\n\n"
+        tempstr += f"\n\n####################[PAGE_BREAK TITLE:{f}]####################\n\n"
     create_unified_text(tempstr)
 
 unify_texts()
