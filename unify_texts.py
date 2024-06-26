@@ -1,11 +1,5 @@
 import os
 
-# def create_txt(doc):
-#     f = open("files/converted.txt", "w", encoding='utf-8')
-#     for paragraph in doc.paragraphs:
-#         f.write(paragraph.text + "\n")
-#     f.close()
-
 def get_filenames():
     dir_path = "texts"
     file_names = [
