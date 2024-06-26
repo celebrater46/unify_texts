@@ -43,8 +43,8 @@ def split_text():
             pages.append(tempstr)
             tempstr = ""     
     # print(tempstr)
-    print(pages[5])
-    # create_texts(pages)
+    # print(pages[5])
+    create_texts(pages)
 
 def test(txt):
     # re_obj = re.search(r'TITLE:[\w-]+.txt', txt)
